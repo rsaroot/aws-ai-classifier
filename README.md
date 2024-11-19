@@ -214,17 +214,17 @@ curl -X POST "your-url-endpoint/prod/updateClassifier" \
 ```json
 [
    {
-      "key":"000000000000001",
+      "key":"000000000000005",
       "data":{
-         "code":"000000000000001",
+         "code":"000000000000005",
          "name":"ЭЛЕКТРОЭНЕРГИЯ ТЕПЛОЭНЕРГИЯ УГОЛЬ АЗОТ ВОДОРОД ВОДА ПРИРОДНЫЙ ГАЗ",
          "attributes":null
       }
    },
    {
-      "key":"0804",
+      "key":"000000000000703",
       "data":{
-         "code":"0804",
+         "code":"000000000000703",
          "name":"Электролиты щелочные и кислотные",
          "attributes":[
             {
@@ -240,12 +240,12 @@ curl -X POST "your-url-endpoint/prod/updateClassifier" \
             {
                "attribute_name":"Плотность, г/м3",
                "attribute_type":"Число",
-               "attribute_example":"1,27"
+               "attribute_example":1.27
             },
             {
                "attribute_name":"Объем, л",
                "attribute_type":"Число",
-               "attribute_example":"5"
+               "attribute_example":5
             }
          ]
       }
