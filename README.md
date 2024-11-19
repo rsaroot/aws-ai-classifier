@@ -83,7 +83,7 @@
       }
    ]
 }
-```markdown
+```
 ## Документация
 
 - [API Документация](docs/aws-gpt-classifier-api.yaml)
