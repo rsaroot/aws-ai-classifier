@@ -15,8 +15,8 @@
 Проект разделён на три отдельных Lambda-функции, каждая из которых обрабатывает свой эндпоинт:
 
 - **[classify.py](/src/classify.py)**: Обрабатывает запросы `GET /classify`.
-- **`/src/pick_attributes.py`**: Обрабатывает запросы `POST /pickAtt`.
-- **`/src/update_classifier.py`**: Обрабатывает запросы `POST /updateClassifier`.
+- **[pick_attributes.py](/src/pick_attributes.py)**: Обрабатывает запросы `POST /pickAtt`.
+- **[update_classifier.py](/src/update_classifier.py)**: Обрабатывает запросы `POST /updateClassifier`.
 
 ## Структура данных в Redis
 
