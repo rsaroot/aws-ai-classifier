@@ -126,7 +126,7 @@ curl -G "your-url-endpoint/prod/classify" \
 ```
 **`POST /pickAtt`**
 
-**response**:
+**request**:
 ```bash
 curl -X POST your-url-endpoint/prod/pickAtt \
   -H "Content-Type: application/json" \
@@ -137,8 +137,8 @@ curl -X POST your-url-endpoint/prod/pickAtt \
   | jq
 ```
 
-**request**:
-```
+**response**:
+```json
 {
   "input_item_name": "Труба тип 3-820x9-К52 ГОСТ 20295-85",
   "input_final_class_name": "Трубы стальные сварные для магистральных газонефтепроводов",
