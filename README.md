@@ -124,4 +124,83 @@ curl -G "your-url-endpoint/prod/classify" \
   ]
 }
 ```
+**`POST /pickAtt`**
+
+**response**:
+```bash
+curl -X POST your-url-endpoint/prod/pickAtt \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: <API_KEY>" \
+  -d '{"item_name": "Труба тип 3-820x9-К52 ГОСТ 20295-85",
+	   "final_class_name": "Трубы стальные сварные для магистральных газонефтепроводов",
+	   "final_class_code": "000000004010202"}' \
+  | jq
+```
+
+**request**:
+```
+{
+  "input_item_name": "Труба тип 3-820x9-К52 ГОСТ 20295-85",
+  "input_final_class_name": "Трубы стальные сварные для магистральных газонефтепроводов",
+  "input_final_class_code": "000000004010202",
+  "result": [
+    {
+      "attribute_name": "Вид продукции",
+      "attribute_type": "Текст",
+      "attribute_example": "Труба стальная",
+      "attribute_decision": "Труба"
+    },
+    {
+      "attribute_name": "Тип трубы",
+      "attribute_type": "Текст",
+      "attribute_example": "тип 1",
+      "attribute_decision": "тип 3"
+    },
+    {
+      "attribute_name": "Термообработка",
+      "attribute_type": "Текст",
+      "attribute_example": "У",
+      "attribute_decision": null
+    },
+    {
+      "attribute_name": "Диаметр, мм",
+      "attribute_type": "Число",
+      "attribute_example": "820",
+      "attribute_decision": 820
+    },
+    {
+      "attribute_name": "Толщина стенки, мм",
+      "attribute_type": "Число",
+      "attribute_example": "10",
+      "attribute_decision": 9
+    },
+    {
+      "attribute_name": "Класс прочности",
+      "attribute_type": "Текст",
+      "attribute_example": "К52",
+      "attribute_decision": "К52"
+    },
+    {
+      "attribute_name": "Марка металла или сплава",
+      "attribute_type": "Текст",
+      "attribute_example": "17Г1С",
+      "attribute_decision": null
+    },
+    {
+      "attribute_name": "Стандарт технических требований",
+      "attribute_type": "Текст",
+      "attribute_example": "ГОСТ 20295-85",
+      "attribute_decision": "ГОСТ 20295-85"
+    },
+    {
+      "attribute_name": "Тип покрытия",
+      "attribute_type": "Текст",
+      "attribute_example": "без покрытия",
+      "attribute_decision": null
+    }
+  ]
+}
+```
+
+
 
