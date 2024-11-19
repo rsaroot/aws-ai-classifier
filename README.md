@@ -201,6 +201,61 @@ curl -X POST your-url-endpoint/prod/pickAtt \
   ]
 }
 ```
+**`POST /pickAtt`**
 
+**request**:
+```bash
+curl -X POST "your-url-endpoint/prod/updateClassifier" \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: <API_KEY>" \
+  -d @data.json | jq
+```
+**data.json**:
+```json
+[
+   {
+      "key":"000000000000001",
+      "data":{
+         "code":"000000000000001",
+         "name":"ЭЛЕКТРОЭНЕРГИЯ ТЕПЛОЭНЕРГИЯ УГОЛЬ АЗОТ ВОДОРОД ВОДА ПРИРОДНЫЙ ГАЗ",
+         "attributes":null
+      }
+   },
+   {
+      "key":"0804",
+      "data":{
+         "code":"0804",
+         "name":"Электролиты щелочные и кислотные",
+         "attributes":[
+            {
+               "attribute_name":"Вид продукции",
+               "attribute_type":"Текст",
+               "attribute_example":"Электролит"
+            },
+            {
+               "attribute_name":"Тип",
+               "attribute_type":"Текст",
+               "attribute_example":"кислотный"
+            },
+            {
+               "attribute_name":"Плотность, г/м3",
+               "attribute_type":"Число",
+               "attribute_example":"1,27"
+            },
+            {
+               "attribute_name":"Объем, л",
+               "attribute_type":"Число",
+               "attribute_example":"5"
+            }
+         ]
+      }
+   }
+]
+```
 
-
+**response**:
+```json
+{
+  "result": "OK"
+}
+```
