@@ -87,7 +87,7 @@
 ```
 ## Документация
 
-- [API Документация](docs/aws-gpt-classifier-api.yaml)
+- [API Документация](docs/aws-ai-classifier-api.yaml)
 
 ## Примеры использования
 
