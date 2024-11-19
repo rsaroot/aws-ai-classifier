@@ -12,11 +12,11 @@
 
 ## Структура проекта
 
-Проект разделён на три отдельных Lambda-функции (директория /src), каждая из которых обрабатывает свой эндпоинт:
+Проект разделён на три отдельных Lambda-функции, каждая из которых обрабатывает свой эндпоинт:
 
-- **`classify.py`**: Обрабатывает запросы `GET /classify`.
-- **`pick_attributes.py`**: Обрабатывает запросы `POST /pickAtt`.
-- **`update_classifier.py`**: Обрабатывает запросы `POST /updateClassifier`.
+- **`/src/classify.py`**: Обрабатывает запросы `GET /classify`.
+- **`/src/pick_attributes.py`**: Обрабатывает запросы `POST /pickAtt`.
+- **`/src/update_classifier.py`**: Обрабатывает запросы `POST /updateClassifier`.
 
 ## Структура данных в Redis
 
