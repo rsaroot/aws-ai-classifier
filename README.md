@@ -1,4 +1,4 @@
-# AWS GPT Classifier (Demo Project)
+# AWS GPT Classifier
 
 Решение на базе AWS API Gateway и AWS Lambda для обработки и классификации наименования номенклатуры по классам и атрибутам c помощью ChatGPT с использованием Redis в качестве хранилища данных (классификатор)
 
