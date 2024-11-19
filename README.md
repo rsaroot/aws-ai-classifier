@@ -87,3 +87,40 @@
 ## Документация
 
 - [API Документация](docs/aws-gpt-classifier-api.yaml)
+
+## Примеры использования
+
+**`GET /classify`**:
+response:
+```bash
+curl -G "your-url-endpoint/prod/classify" \
+  --data-urlencode "itemName=Шпилька 2-1-М36-6gx200.35 ОСТ 26-2040-96" \
+  -H "Accept: application/json" \
+  -H "x-api-key: <API_KEY>" \
+  | jq
+```
+request:
+```json
+{
+  "input_item_name": "Шпилька 2-1-М36-6gx200.35 ОСТ 26-2040-96",
+  "result": [
+    {
+      "class_name": "ИЗДЕЛИЯ КРЕПЕЖНЫЕ ОБЩЕМАШИНОСТРОИТЕЛЬНОГО ПРИМЕНЕНИЯ",
+      "class_code": "000000000000006"
+    },
+    {
+      "class_name": "Шпильки",
+      "class_code": "000000000000616"
+    },
+    {
+      "class_name": "Шпильки, обозначаемые по ГОСТ",
+      "class_code": "000000000061601"
+    },
+    {
+      "class_name": "Шпильки по ОСТ 26-2040",
+      "class_code": "000000006160103"
+    }
+  ]
+}
+```
+
