@@ -90,8 +90,9 @@
 
 ## Примеры использования
 
-**`GET /classify`**:
-response:
+**`GET /classify`**
+
+**response**:
 ```bash
 curl -G "your-url-endpoint/prod/classify" \
   --data-urlencode "itemName=Шпилька 2-1-М36-6gx200.35 ОСТ 26-2040-96" \
@@ -99,7 +100,7 @@ curl -G "your-url-endpoint/prod/classify" \
   -H "x-api-key: <API_KEY>" \
   | jq
 ```
-request:
+**request**:
 ```json
 {
   "input_item_name": "Шпилька 2-1-М36-6gx200.35 ОСТ 26-2040-96",
