@@ -1,0 +1,190 @@
+openapi: "3.0.1"
+info:
+  title: "AWS GPT Classifier API"
+  version: "1.0.0"
+servers:
+- url: "your-url-endpoint/{basePath}"
+  variables:
+    basePath:
+      default: "prod"
+paths:
+  /pickAtt:
+    post:
+      summary: "Подбор значений для аттрибутов"
+      description: "Для переданного наименования номенклатуры на базе переданного конечного класса определяет значения аттрибутов"
+      operationId: "pickAtt"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/modelRequestForPickAtt"
+        required: true
+      responses:
+        "504":
+          description: "504 response"
+          content: {}
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/modelResponseForPickAtt"
+        "400":
+          description: "400 response"
+          content: {}
+        "500":
+          description: "500 response"
+          content: {}
+        "502":
+          description: "502 response"
+          content: {}
+      security:
+      - api_key: []
+  /classify:
+    get:
+      summary: "Подбор классов"
+      description: "Для переданного наименования номенклатуры подбирает все классы в глубину на базе классификатора"
+      operationId: "classify"
+      parameters:
+      - name: "itemName"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "504":
+          description: "504 response"
+          content: {}
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/modelResponseForClassifiy"
+        "400":
+          description: "400 response"
+          content: {}
+        "500":
+          description: "500 response"
+          content: {}
+        "502":
+          description: "502 response"
+          content: {}
+      security:
+      - api_key: []
+  /updateClassifier:
+    post:
+      summary: "Обновление данных в классификаторе"
+      description: "Обновляет данные в классификаторе (Redis). Если ключ уже существует, то данные по нему перезаписываются, если нет — создается новый ключ c переданными по нему данными"
+      operationId: "updateClassifier"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/modelRequestUpdateClassifier"
+        required: true
+      responses:
+        "504":
+          description: "504 response"
+          content: {}
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/modelResponseUpdateClassifier"
+        "400":
+          description: "400 response"
+          content: {}
+        "500":
+          description: "500 response"
+          content: {}
+        "502":
+          description: "502 response"
+          content: {}
+      security:
+      - api_key: []
+components:
+  schemas:
+    modelResponseForPickAtt:
+      type: "object"
+      properties:
+        input_item_name:
+          type: "string"
+        input_final_class_name:
+          type: "string"
+        input_final_class_code:
+          type: "string"
+        result:
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              attribute_name:
+                type: "string"
+              attribute_type:
+                type: "string"
+              attribute_example:
+                type: "string"
+              attribute_decicion:
+                type: "string"
+    modelResponseUpdateClassifier:
+      type: "object"
+      properties:
+        result:
+          type: "string"
+    modelResponseForClassifiy:
+      type: "object"
+      properties:
+        input_item_name:
+          type: "string"
+        result:
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              class_name:
+                type: "string"
+              class_code:
+                type: "string"
+    modelRequestUpdateClassifier:
+      type: "array"
+      items:
+        required:
+        - "data"
+        - "key"
+        type: "object"
+        properties:
+          key:
+            type: "string"
+          data:
+            required:
+            - "attributes"
+            - "code"
+            - "name"
+            type: "object"
+            properties:
+              code:
+                type: "string"
+              name:
+                type: "string"
+              attributes:
+                type: "object"
+    modelRequestForPickAtt:
+      required:
+      - "final_class_code"
+      - "final_class_name"
+      - "item_name"
+      type: "object"
+      properties:
+        item_name:
+          type: "string"
+        final_class_name:
+          type: "string"
+        final_class_code:
+          type: "string"
+  securitySchemes:
+    api_key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
