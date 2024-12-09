@@ -263,3 +263,7 @@ curl -X POST "your-url-endpoint/prod/updateClassifier" \
   "result": "OK"
 }
 ```
+
+## Результаты
+
+На уровне ERP реализован сбор статистики по использованию сервиса - проведена оцена эффективности работы, посмотреть можно [тут](/analysis/aws-ai-classifier-worker-analysis.ipynb)
